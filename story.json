@@ -197,8 +197,8 @@
         "question": "How does Alana respond?",
         "choices": [
           { "text": "We will investigate, it is a solid lead.", "nextId": 20 },
-          { "text": "We haven't had any other leads in a long time, lets take a look", "nextId": 21 }, 
-          { "text": "Jax's right. I'm tired, let's just discard it as system noise", "nextId":  21} 
+          { "text": "We haven't had any other leads in a long time, lets take a look", "nextId": 27 }, 
+          { "text": "Jax's right. I'm tired, let's just discard it as system noise", "nextId":  31} 
         ]
       },
       {
@@ -232,6 +232,160 @@
         "author": "Jax",
         "text": "I get it, there is more to this error than meets the eye",
         "timestamp": { "date": "8 May 2072", "time": "21:18" }
+      },
+      {
+        "id": 24,
+        "type": "message",
+        "chatId": "group",
+        "author": "Jax",
+        "text": "I'm just not sure how many times ARC-A can use its deep scan function before the data streams  sanitation bots flag it for deletion.",
+        "timestamp": { "date": "8 May 2072", "time": "21:20" }
+      },
+      {
+        "id": 25,
+        "type": "message",
+        "chatId": "group",
+        "author": "Alana",
+        "text": "This one will be worth it, Jax.",
+        "timestamp": { "date": "8 May 2072", "time": "21:21" }
+      },
+      {
+        "id": 26,
+        "type": "message",
+        "chatId": "group",
+        "author": "Alana",
+        "text": "I'm sure",
+        "timestamp": { "date": "8 May 2072", "time": "21:21" },
+        "nextId": 42
+      },
+      {
+        "id": 27,
+        "type": "message",
+        "chatId": "group",
+        "author": "Alana",
+        "text": "An anomaly this specific, this impossible, needs to be investigated. It's our protocol for a reason. Let's run a scan.",
+        "timestamp": { "date": "8 May 2072", "time": "21:17" }
+      },
+      {
+        "id": 28,
+        "type": "message",
+        "chatId": "group",
+        "author": "Jax",
+        "text": "Fine. Due diligence. ",
+        "timestamp": { "date": "8 May 2072", "time": "21:17" }
+      },
+      {
+        "id": 29,
+        "type": "message",
+        "chatId": "group",
+        "author": "Lena",
+        "text": "A loose thread can unravel a tapestry. It's always worth pulling.",
+        "timestamp": { "date": "8 May 2072", "time": "21:18" }
+      },
+      {
+        "id": 30,
+        "type": "message",
+        "chatId": "group",
+        "author": "Alana",
+        "text": "I'm just not sure how many times ARC-A can use its deep scan function before the data streams sanitation bots flag it for deletion. I don't want to waste resources chasing more ghosts.",
+        "timestamp": { "date": "8 May 2072", "time": "21:20" },
+        "nextId": 42
+      },
+      {
+        "id": 31,
+        "type": "message",
+        "chatId": "group",
+        "author": "Alana",
+        "text": "You're right Jax",
+        "timestamp": { "date": "8 May 2072", "time": "21:17" }
+      },
+      {
+        "id": 32,
+        "type": "message",
+        "chatId": "group",
+        "author": "Alana",
+        "text": "Were all tired, of searching for the truth",
+        "timestamp": { "date": "8 May 2072", "time": "21:18" }
+      },
+      {
+        "id": 33,
+        "type": "message",
+        "chatId": "group",
+        "author": "Jax",
+        "text": "Good call.",
+        "timestamp": { "date": "8 May 2072", "time": "21:18" }
+      },
+      {
+        "id": 34,
+        "type": "message",
+        "chatId": "group",
+        "author": "Jax",
+        "text": "I'm not wasting any more time on dead end error dumps ",
+        "timestamp": { "date": "8 May 2072", "time": "21:19" }
+      },
+      {
+        "id": 35,
+        "type": "message",
+        "chatId": "group",
+        "author": "Jax",
+        "text": "ARC-A Delete corrupted packet",
+        "timestamp": { "date": "8 May 2072", "time": "21:20" }
+      },
+      {
+        "id": 36,
+        "type": "message",
+        "chatId": "group",
+        "author": "Jax",
+        "text": "Same time next week?",
+        "timestamp": { "date": "8 May 2072", "time": "21:21" }
+      },
+      {
+        "id": 37,
+        "type": "message",
+        "chatId": "group",
+        "author": "Alana",
+        "text": "Sure, Jax. Stay safe",
+        "timestamp": { "date": "8 May 2072", "time": "21:22" }
+      },
+      {
+        "id": 38,
+        "type": "message",
+        "chatId": "group",
+        "author": "Lena",
+        "text": " I wonder what kind of atmosphere it would have been. ",
+        "timestamp": { "date": "8 May 2072", "time": "21:23" }
+      },
+      {
+        "id": 39,
+        "type": "message",
+        "chatId": "group",
+        "author": "Alana",
+        "text": "It's not atmosphere we're trying to find, but the lie behind Sol-Fusion ",
+        "timestamp": { "date": "8 May 2072", "time": "21:24" }
+      },
+      {
+        "id": 40,
+        "type": "message",
+        "chatId": "group",
+        "author": "Alana",
+        "text": "Maybe... but if we weren't in a biome, we might feel more free ",
+        "timestamp": { "date": "8 May 2072", "time": "21:24" }
+      },
+      {
+        "id": 41,
+        "type": "message",
+        "chatId": "group",
+        "author": "Alana",
+        "text": "END OF STORY - START AGAIN?",
+        "timestamp": { "date": "8 May 2072", "time": "21:24" }
+      },
+      {
+        "id": 42,
+        "type": "message",
+        "chatId": "group",
+        "author": "ARC-A",
+        "text": "System Notification'''' New task initiated: Deep-scan for 'fringe' data related to coordinates 34.2N, 12.8W. Time elapsed: 0.2s.",
+        "timestamp": { "date": "8 May 2072", "time": "21:23" }
       }
     ]
   }
