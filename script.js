@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             li.innerHTML = `
                 <div class="chat-item-info">
                     <h3>${chat.name}</h3>
-                    <span>${lastMessage ? lastMessage.timestamp.time : ''}</span>
+                    <span>${lastMessage && lastMessage.timestamp ? lastMessage.timestamp.time : ''}</span>
                 </div>
                 <p>${lastMessage ? (lastMessage.type === 'message' ? lastMessage.text : 'Choose a response...') : 'No messages yet'}</p>
             `;
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         messagesAndChoices.forEach(item => {
             if (item.type === 'message') {
-                if (item.timestamp.date !== lastDate) {
+                if (item.timestamp && item.timestamp.date !== lastDate) {
                     const dateDiv = document.createElement('div');
                     dateDiv.className = 'date-divider';
                     dateDiv.textContent = item.timestamp.date;
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         messageDiv.innerHTML = `
             ${authorHTML}
             <p class="text">${messageData.text}</p>
-            <small class="timestamp">${messageData.timestamp.time}</small>
+            <small class="timestamp">${messageData.timestamp ? messageData.timestamp.time : ''}</small>
         `;
         messageContainer.appendChild(messageDiv);
         messageContainer.scrollTop = messageContainer.scrollHeight;
