@@ -1,0 +1,64 @@
+{
+    "chats": [
+      {
+        "id": "group",
+        "name": "Group Chat",
+        "members": "Jax, Lena, ARC-A",
+        "lastMessage": "Hey Alana whats up?",
+        "lastTime": "21:05"
+      },
+      {
+        "id": "lena",
+        "name": "Lena",
+        "members": "Lena",
+        "lastMessage": "This is a really long piece of text...",
+        "lastTime": "21:01",
+        "unread": 1
+      }
+    ],
+    "script": [
+      {
+        "id": 1,
+        "type": "message",
+        "chatId": "group",
+        "author": "Alana",
+        "text": "This is the character you are playing as in this chattie",
+        "timestamp": "20:47"
+      },
+      {
+        "id": 2,
+        "type": "message",
+        "chatId": "group",
+        "author": "Lena",
+        "text": "This is a really long piece of text that I wrote that is super important exposition to the story!",
+        "timestamp": "21:01"
+      },
+      {
+        "id": 3,
+        "type": "message",
+        "chatId": "group",
+        "author": "Jax",
+        "text": "Hey Alana whats up?",
+        "timestamp": "21:05"
+      },
+      {
+        "id": 4,
+        "type": "playerChoice",
+        "chatId": "group",
+        "question": "How does Alana respond?",
+        "choices": [
+          { "text": "Everything is fine", "nextId": 5 },
+          { "text": "Somethings are fine", "nextId": 6 },
+          { "text": "Nothing is fine", "nextId": 7 }
+        ]
+      },
+      {
+        "id": 5,
+        "type": "message",
+        "chatId": "group",
+        "author": "Alana",
+        "text": "Everything is fine, Jax. Don't worry about it.",
+        "timestamp": "21:06"
+      }
+    ]
+  }

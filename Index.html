@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna Archives</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="start-screen" class="screen active">
+        <h1>Luna Archives</h1>
+        <button id="play-button">Play</button>
+    </div>
+
+    <div id="chat-list-screen" class="screen">
+        <header>
+            <h2>Luna Archives</h2>
+        </header>
+        <ul id="chat-list-container">
+            </ul>
+    </div>
+
+    <div id="chat-screen" class="screen">
+        <header>
+            <button id="back-button">&leftarrow;</button>
+            <div class="chat-info">
+                <h2 id="chat-title"></h2>
+                <p id="chat-members"></p>
+            </div>
+        </header>
+        <main id="message-container">
+            </main>
+        <footer id="choices-container">
+            </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
