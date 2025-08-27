@@ -1,64 +1,237 @@
 {
     "chats": [
-      {
-        "id": "group",
-        "name": "Group Chat",
-        "members": "Jax, Lena, ARC-A",
-        "lastMessage": "Hey Alana whats up?",
-        "lastTime": "21:05"
-      },
-      {
-        "id": "lena",
-        "name": "Lena",
-        "members": "Lena",
-        "lastMessage": "This is a really long piece of text...",
-        "lastTime": "21:01",
-        "unread": 1
-      }
-    ],
+        {
+          "id": "group",
+          "name": "Group Chat",
+          "members": "Alana,Jax, Lena, ARC-A"
+        },
+        {
+            "id": "private",
+            "name": "Private Chat",
+            "members": "Alana,Jax, Lena"
+          },
+        {
+          "id": "lena",
+          "name": "Lena",
+          "members": "Alana, Lena"
+        },
+        {
+            "id": "jax",
+            "name": "Jax",
+            "members": "Alana, Jax"
+          }
+      ],
     "script": [
       {
         "id": 1,
         "type": "message",
         "chatId": "group",
-        "author": "Alana",
-        "text": "This is the character you are playing as in this chattie",
-        "timestamp": "20:47"
+        "author": "ARC-A",
+        "text": "System Notification: Anomalous data packet detected. Source: Weather Station 34.2N, 12.8W. Time: 2077-03-15. Classification: Impossible.",
+        "timestamp": { "date": "8 May 2072", "time": "20:47" }
       },
       {
         "id": 2,
         "type": "message",
         "chatId": "group",
-        "author": "Lena",
-        "text": "This is a really long piece of text that I wrote that is super important exposition to the story!",
-        "timestamp": "21:01"
+        "author": "Alana",
+        "text": "ARC-A has found something",
+        "timestamp": { "date": "8 May 2072", "time": "21:01" }
       },
       {
         "id": 3,
         "type": "message",
         "chatId": "group",
         "author": "Jax",
-        "text": "Hey Alana whats up?",
-        "timestamp": "21:05"
+        "text": "A corrupted error log, again?!?",
+        "timestamp": { "date": "8 May 2072", "time": "21:05" }
       },
       {
         "id": 4,
-        "type": "playerChoice",
+        "type": "message",
         "chatId": "group",
-        "question": "How does Alana respond?",
-        "choices": [
-          { "text": "Everything is fine", "nextId": 5 },
-          { "text": "Somethings are fine", "nextId": 6 },
-          { "text": "Nothing is fine", "nextId": 7 }
-        ]
+        "author": "Jax",
+        "text": "A corrupted error log, again?!?",
+        "timestamp": { "date": "8 May 2072", "time": "21:05" }
       },
       {
         "id": 5,
         "type": "message",
         "chatId": "group",
         "author": "Alana",
-        "text": "Everything is fine, Jax. Don't worry about it.",
-        "timestamp": "21:06"
+        "text": "No Jax, this one looks different",
+        "timestamp": { "date": "8 May 2072", "time": "21:06" }
+      },
+      {
+        "id": 6,
+        "type": "message",
+        "chatId": "group",
+        "author": "ARC-A",
+        "text": "ARC-A tell me why I should care",
+        "timestamp": { "date": "8 May 2072", "time": "21:06" }
+      },
+      {
+        "id": 7,
+        "type": "message",
+        "chatId": "group",
+        "author": "ARC-A",
+        "text": "Summarising the anomalous data packet from, Weather Station 34.2N, 12.8W. Time: 2077-03-15. This data packet contains weather information from the weather station in precinct 743 close to the Sol-Fusion Lab before the alignment and...",
+        "timestamp": { "date": "8 May 2072", "time": "21:07" }
+      },
+      {
+        "id": 8,
+        "type": "message",
+        "chatId": "group",
+        "author": "Jax",
+        "text": "ARC-A stop",
+        "timestamp": { "date": "8 May 2072", "time": "21:08" }
+      },
+      {
+        "id": 9,
+        "type": "message",
+        "chatId": "group",
+        "author": "Jax",
+        "text": "OK I get it, no need to be so verbose",
+        "timestamp": { "date": "8 May 2072", "time": "21:08" }
+      },
+      {
+        "id": 10,
+        "type": "message",
+        "chatId": "group",
+        "author": "ARC-A",
+        "text": "Updating preferences ",
+        "timestamp": { "date": "8 May 2072", "time": "21:08" }
+      },
+      {
+        "id": 11,
+        "type": "message",
+        "chatId": "group",
+        "author": "Lena",
+        "text": "Near the Sol-Fusion site",
+        "timestamp": { "date": "8 May 2072", "time": "21:08" }
+      },
+      {
+        "id": 12,
+        "type": "message",
+        "chatId": "group",
+        "author": "Lena",
+        "text": "Finally, ARC-A has found data relate to a relevant location",
+        "timestamp": { "date": "8 May 2072", "time": "21:09" }
+      },
+      {
+        "id": 13,
+        "type": "message",
+        "chatId": "group",
+        "author": "Jax",
+        "text": "It's such a tiny data package, is this really worth the effort?",
+        "timestamp": { "date": "8 May 2072", "time": "21:10" }
+      },
+      {
+        "id": 13,
+        "type": "message",
+        "chatId": "group",
+        "author": "Lena",
+        "text": "I know, but the truth will be nestled in the smallest gap",
+        "timestamp": { "date": "8 May 2072", "time": "21:11" }
+      },
+      {
+        "id": 13,
+        "type": "message",
+        "chatId": "group",
+        "author": "Alana",
+        "text": "It's a single, impossible data point from a 2077 weather report ",
+        "timestamp": { "date": "8 May 2072", "time": "21:11" }
+      },
+      {
+        "id": 14,
+        "type": "message",
+        "chatId": "group",
+        "author": "Lena",
+        "text": "The data stream has tried to bury the truth. But I'm confident it cannot be errased 🤞 ",
+        "timestamp": { "date": "8 May 2072", "time": "21:12" }
+      },
+      {
+        "id": 15,
+        "type": "message",
+        "chatId": "group",
+        "author": "Lena",
+        "text": "We will find a lead at some point, maybe this is it ",
+        "timestamp": { "date": "8 May 2072", "time": "21:13" }
+      },
+      {
+        "id": 15,
+        "type": "message",
+        "chatId": "group",
+        "author": "Lena",
+        "text": "It's a barometric pressure spike that would simply imply, for a few seconds. Luna had an atmosphere.",
+        "timestamp": { "date": "8 May 2072", "time": "21:14" }
+      },
+      {
+        "id": 16,
+        "type": "message",
+        "chatId": "group",
+        "author": "Lena",
+        "text": "Rubbish! Thats just another piece of corrupted data 😡",
+        "timestamp": { "date": "8 May 2072", "time": "21:15" }
+      },
+      {
+        "id": 17,
+        "type": "message",
+        "chatId": "group",
+        "author": "Jax",
+        "text": "I'm sick of looking through 10'000 lines of garbage error logs. I still don't get why this one is special ",
+        "timestamp": { "date": "8 May 2072", "time": "21:15" }
+      },
+      {
+        "id": 18,
+        "type": "message",
+        "chatId": "group",
+        "author": "Lena",
+        "text": "Sol-Fusion could have affected the weather and atmosphere, it's not that far fetched to hope this one is special",
+        "timestamp": { "date": "8 May 2072", "time": "21:16" }
+      },
+      {
+        "id": 19,
+        "type": "playerChoice",
+        "chatId": "group",
+        "question": "How does Alana respond?",
+        "choices": [
+          { "text": "We will investigate, it is a solid lead.", "nextId": 20 },
+          { "text": "We haven't had any other leads in a long time, lets take a look", "nextId": 21 }, 
+          { "text": "Jax's right. I'm tired, let's just discard it as system noise", "nextId":  21} 
+        ]
+      },
+      {
+        "id": 20,
+        "type": "message",
+        "chatId": "group",
+        "author": "Alana",
+        "text": "We will investigate, it is a solid lead.",
+        "timestamp": { "date": "8 May 2072", "time": "21:17" }
+      },
+      {
+        "id": 21,
+        "type": "message",
+        "chatId": "group",
+        "author": "Jax",
+        "text": "Fine, I'll use ARC-A's deep scan function for any related fringe data",
+        "timestamp": { "date": "8 May 2072", "time": "21:17" }
+      },
+      {
+        "id": 22,
+        "type": "message",
+        "chatId": "group",
+        "author": "Lena",
+        "text": "ARC-A found a triad of data: relevant location, relevant time and plausible scientific anomaly",
+        "timestamp": { "date": "8 May 2072", "time": "21:18" }
+      },
+      {
+        "id": 23,
+        "type": "message",
+        "chatId": "group",
+        "author": "Jax",
+        "text": "I get it, there is more to this error than meets the eye",
+        "timestamp": { "date": "8 May 2072", "time": "21:18" }
       }
     ]
   }

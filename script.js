@@ -9,103 +9,150 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const playButton = document.getElementById('play-button');
+    const backButton = document.getElementById('back-button');
     const chatListContainer = document.getElementById('chat-list-container');
     const messageContainer = document.getElementById('message-container');
     const choicesContainer = document.getElementById('choices-container');
     const chatTitle = document.getElementById('chat-title');
 
     let storyData = {};
-    let currentStoryPoint = 1; // Start at the first script item
+    let currentStoryPoint = 0; // Start before the first script item
 
     // --- Core Functions ---
 
-    // Function to switch between screens
     function showScreen(screenName) {
-        // Hide all screens
         for (let key in screens) {
             screens[key].classList.remove('active');
         }
-        // Show the requested screen
         screens[screenName].classList.add('active');
     }
 
-    // Function to start the game
     async function startGame() {
-        // Fetch the story data from the JSON file
         const response = await fetch('story.json');
         storyData = await response.json();
         
-        renderChatList();
-        showScreen('chatList');
+        // Start the story by progressing to the first event
+        progressStory(1);
     }
 
-    // Function to render the list of available chats
     function renderChatList() {
         chatListContainer.innerHTML = ''; // Clear previous list
         storyData.chats.forEach(chat => {
+            // Find the very last message for this chat that has been revealed
+            const lastMessage = [...storyData.script]
+                .reverse()
+                .find(item => item.type === 'message' && item.chatId === chat.id && item.id <= currentStoryPoint);
+
             const li = document.createElement('li');
-            li.className = 'chat-item'; // Add a class for styling
+            li.className = 'chat-item';
             li.innerHTML = `
-                <h3>${chat.name}</h3>
-                <p>${chat.lastMessage}</p>
-                <span>${chat.lastTime}</span>
+                <div class="chat-item-info">
+                    <h3>${chat.name}</h3>
+                    <span>${lastMessage ? lastMessage.timestamp.time : ''}</span>
+                </div>
+                <p>${lastMessage ? lastMessage.text : 'No messages yet'}</p>
             `;
             li.addEventListener('click', () => openChat(chat.id));
             chatListContainer.appendChild(li);
         });
     }
     
-    // Function to open a specific chat and render its messages
     function openChat(chatId) {
         const chat = storyData.chats.find(c => c.id === chatId);
         chatTitle.textContent = chat.name;
         messageContainer.innerHTML = ''; // Clear old messages
         
-        // Find all messages for this chat up to the current point
+        let lastDate = null;
+
         storyData.script
             .filter(item => item.chatId === chatId && item.id <= currentStoryPoint && item.type === 'message')
-            .forEach(item => appendMessage(item));
+            .forEach(item => {
+                // Check if the date has changed
+                if (item.timestamp.date !== lastDate) {
+                    const dateDiv = document.createElement('div');
+                    dateDiv.className = 'date-divider';
+                    dateDiv.textContent = item.timestamp.date;
+                    messageContainer.appendChild(dateDiv);
+                    lastDate = item.timestamp.date;
+                }
+                appendMessage(item);
+            });
             
         showScreen('chat');
         // Check if the next event is a choice for this chat
-        progressStory(currentStoryPoint + 1);
+        const nextEvent = storyData.script.find(item => item.id === currentStoryPoint + 1);
+        if (nextEvent && nextEvent.chatId === chatId && nextEvent.type === 'playerChoice') {
+            renderChoices(nextEvent);
+        }
     }
     
-    // Function to add a single message to the screen
     function appendMessage(messageData) {
+        const isSent = messageData.author === 'Alana';
         const messageDiv = document.createElement('div');
-        messageDiv.className = 'message ' + (messageData.author === 'Alana' ? 'sent' : 'received');
-        messageDiv.textContent = messageData.text;
+        messageDiv.className = 'message ' + (isSent ? 'sent' : 'received');
+
+        // Conditionally add the author's name for received messages
+        const authorHTML = !isSent ? `<strong class="author">${messageData.author}</strong>` : '';
+
+        messageDiv.innerHTML = `
+            ${authorHTML}
+            <p class="text">${messageData.text}</p>
+            <small class="timestamp">${messageData.timestamp.time}</small>
+        `;
+
         messageContainer.appendChild(messageDiv);
-        messageContainer.scrollTop = messageContainer.scrollHeight; // Auto-scroll
+        messageContainer.scrollTop = messageContainer.scrollHeight;
     }
     
-    // The main game loop function
     function progressStory(nextId) {
-        currentStoryPoint = nextId;
-        const currentEvent = storyData.script.find(item => item.id === currentStoryPoint);
+        // If we've reached the end of the script
+        if (nextId > storyData.script.length) {
+            renderChatList();
+            showScreen('chatList');
+            return;
+        }
 
-        if (!currentEvent) return; // End of story
+        currentStoryPoint = nextId -1;
+        const currentEvent = storyData.script.find(item => item.id === nextId);
 
+        // This allows the game to start without auto-playing messages
+        if (currentStoryPoint === 0) {
+            renderChatList();
+            showScreen('chatList');
+            return;
+        }
+
+        // If it's a message, just update the state and redisplay the chat list
         if (currentEvent.type === 'message') {
-            // If it's a message, show it and move to the next event
-            appendMessage(currentEvent);
-            setTimeout(() => progressStory(currentStoryPoint + 1), 1000); // Wait 1 sec
+            // "Unlock" this message and move to the next event automatically
+            setTimeout(() => progressStory(nextId + 1), 500); // Short delay
         } else if (currentEvent.type === 'playerChoice') {
-            // If it's a choice, show the options
-            renderChoices(currentEvent);
+            // If we hit a choice point, stop and update the UI
+            renderChatList();
         }
     }
 
-    // Function to render player choices as buttons
     function renderChoices(choiceData) {
-        choicesContainer.innerHTML = ''; // Clear old choices
+        choicesContainer.innerHTML = '';
         choiceData.choices.forEach(choice => {
             const button = document.createElement('button');
             button.textContent = choice.text;
             button.addEventListener('click', () => {
-                // When a choice is made, progress the story to the corresponding ID
-                choicesContainer.innerHTML = ''; // Clear choices
+                choicesContainer.innerHTML = '';
+                // Create the player's response message from the choice
+                const playerMessage = {
+                    id: currentStoryPoint + 1,
+                    type: 'message',
+                    chatId: choiceData.chatId,
+                    author: 'Alana',
+                    text: choice.text,
+                    timestamp: { date: "9 May 2072", time: "08:30" } // This should be dynamic in a real game
+                };
+                
+                // This is a temporary way to handle the choice message.
+                // A better system would merge the choice into the script.
+                appendMessage(playerMessage);
+
                 progressStory(choice.nextId);
             });
             choicesContainer.appendChild(button);
@@ -114,7 +161,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Event Listeners ---
     playButton.addEventListener('click', startGame);
+    backButton.addEventListener('click', () => {
+        renderChatList(); // Refresh the chat list with latest messages
+        showScreen('chatList');
+    });
 
-    // Initial call to show the start screen
+    // Initial call
     showScreen('start');
 });

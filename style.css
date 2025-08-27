@@ -95,3 +95,70 @@ header {
     margin-top: 5px;
     cursor: pointer;
 }
+
+/* Add these new styles to your style.css file */
+
+.message .author {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #c0b0d0; /* Lighter color for the name */
+}
+
+.message .text {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.message .timestamp {
+    font-size: 0.75em;
+    color: #a090b0;
+    text-align: right;
+    margin-top: 5px;
+    display: block; /* Make it take its own line */
+}
+
+.date-divider {
+    align-self: center;
+    background-color: #4a3a5d;
+    color: #e0e0e0;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    margin: 10px 0;
+}
+
+/* Updated style for chat list items */
+.chat-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #3c2a4d;
+    cursor: pointer;
+    list-style: none;
+}
+
+.chat-item:hover {
+    background-color: #3c2a4d;
+}
+
+.chat-item-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.chat-item-info h3 {
+    margin: 0;
+}
+.chat-item-info span {
+    font-size: 0.8em;
+    color: #a090b0;
+}
+
+.chat-item p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #c0b0d0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
