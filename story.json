@@ -44,15 +44,8 @@
         "chatId": "group",
         "author": "Jax",
         "text": "A corrupted error log, again?!?",
-        "timestamp": { "date": "8 May 2072", "time": "21:05" }
-      },
-      {
-        "id": 4,
-        "type": "message",
-        "chatId": "group",
-        "author": "Jax",
-        "text": "A corrupted error log, again?!?",
-        "timestamp": { "date": "8 May 2072", "time": "21:05" }
+        "timestamp": { "date": "8 May 2072", "time": "21:05" },
+        "nextId": 5
       },
       {
         "id": 5,
@@ -170,7 +163,7 @@
         "id": 16,
         "type": "message",
         "chatId": "group",
-        "author": "Lena",
+        "author": "Jax",
         "text": "Rubbish! Thats just another piece of corrupted data 😡",
         "timestamp": { "date": "8 May 2072", "time": "21:15" }
       },
