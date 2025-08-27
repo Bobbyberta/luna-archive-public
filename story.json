@@ -279,7 +279,7 @@
         "id": 30,
         "type": "message",
         "chatId": "group",
-        "author": "Alana",
+        "author": "Jax",
         "text": "I'm just not sure how many times ARC-A can use its deep scan function before the data streams sanitation bots flag it for deletion. I don't want to waste resources chasing more ghosts.",
         "timestamp": { "date": "8 May 2072", "time": "21:20" },
         "nextId": 42

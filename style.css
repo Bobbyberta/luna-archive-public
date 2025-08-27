@@ -59,6 +59,7 @@ header {
 #message-container {
     flex-grow: 1;
     padding: 10px;
+    padding-bottom: 80px; /* Add space for the continue button */
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -79,6 +80,48 @@ header {
 .sent {
     background-color: #5a4a6d; /* Player's message color */
     align-self: flex-end;
+}
+
+.end-of-chat {
+    background-color: #3a2a4d !important;
+    border: 1px solid #5a4a6d;
+    text-align: center;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.end-of-chat .text {
+    margin: 0;
+    color: #a0a0a0;
+}
+
+.continue-button-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px;
+    background-color: #2b1a3d;
+    border-top: 1px solid #4a3a5d;
+    z-index: 1000;
+}
+
+.continue-btn {
+    width: 100%;
+    background-color: #4a3a5d;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s;
+    text-align: left;
+}
+
+.continue-btn:hover {
+    background-color: #5a4a6d;
 }
 
 #choices-container {
@@ -129,10 +172,10 @@ header {
 
 /* Updated style for chat list items */
 .chat-item {
-    padding: 10px 15px;
-    border-bottom: 1px solid #3c2a4d;
+    padding: 15px;
+    border-bottom: 1px solid #4a3a5d;
     cursor: pointer;
-    list-style: none;
+    transition: background-color 0.2s;
 }
 
 .chat-item:hover {
@@ -143,27 +186,27 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
+}
+
+.chat-info {
+    padding-left: 10px;
 }
 
 .chat-item-info h3 {
     margin: 0;
+    color: #e0e0e0;
 }
+
 .chat-item-info span {
-    font-size: 0.8em;
-    color: #a090b0;
+    color: #a0a0a0;
+    font-size: 0.9em;
 }
 
 .chat-item p {
-    margin: 0;
-    font-size: 0.9em;
-    color: #c0b0d0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin: 5px 0 10px 0;
+    color: #c0c0c0;
 }
-
-/* Add this to your style.css file */
 
 /* Hide the choices container by default */
 #choices-container {

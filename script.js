@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- GAME STATE ---
     let storyData = {};
     let unlockedMessageIds = new Set();
-    let skipAnimationHandler = null; // Used to handle skipping the typing animation
 
     // --- CORE FUNCTIONS ---
 
@@ -35,80 +34,61 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const initializeStory = () => {
+        // Only unlock the first few messages to start the story
         let currentEvent = findEventById(1);
-        while (currentEvent && currentEvent.type === 'message') {
+        let messageCount = 0;
+        const maxInitialMessages = 3; // Only show first 3 messages initially
+        
+        while (currentEvent && currentEvent.type === 'message' && messageCount < maxInitialMessages) {
             unlockedMessageIds.add(currentEvent.id);
+            messageCount++;
             const nextId = currentEvent.nextId || currentEvent.id + 1;
             currentEvent = findEventById(nextId);
         }
-        if (currentEvent && currentEvent.type === 'playerChoice') {
-            unlockedMessageIds.add(currentEvent.id);
-        }
+        
+        // Don't unlock the choice initially - let the story progress naturally
         renderChatList();
         showScreen('chatList');
     };
 
     // --- TYPING ANIMATION & STORY PROGRESSION (NOW ASYNC) ---
 
-    const showTypingIndicator = () => {
-        const indicator = document.createElement('div');
-        indicator.className = 'message received typing-indicator';
-        indicator.innerHTML = '<span></span><span></span><span></span>';
-        indicator.id = 'typing-indicator';
-        messageContainer.appendChild(indicator);
+    const showEndOfChatMessage = () => {
+        const endMessage = document.createElement('div');
+        endMessage.className = 'message received end-of-chat';
+        endMessage.innerHTML = `
+            <p class="text">End of conversation</p>
+        `;
+        messageContainer.appendChild(endMessage);
         scrollToBottom();
-    };
-
-    const removeTypingIndicator = () => {
-        const indicator = document.getElementById('typing-indicator');
-        if (indicator) {
-            indicator.remove();
-        }
-    };
-
-    const waitForDelayOrSkip = (duration) => {
-        return new Promise(resolve => {
-            const timeoutId = setTimeout(resolve, duration);
-            
-            // This handler will be called if the user clicks the screen
-            skipAnimationHandler = () => {
-                clearTimeout(timeoutId);
-                resolve();
-            };
-        });
     };
 
     const processStory = async (startId) => {
         let currentEvent = findEventById(startId);
-        let lastMessageChatId = null;
-
-        while (currentEvent && currentEvent.type === 'message') {
+        
+        if (!currentEvent) return;
+        
+        // Only process one event at a time
+        if (currentEvent.type === 'message') {
             unlockedMessageIds.add(currentEvent.id);
-            lastMessageChatId = currentEvent.chatId;
-
-            // If message is from another character, show typing indicator
-            if (currentEvent.author !== 'Alana') {
-                showTypingIndicator();
-                await waitForDelayOrSkip(1500); // Wait 1.5 seconds or until skipped
-                removeTypingIndicator();
-            }
-
-            appendMessage(currentEvent); // The message appears after the delay
+            appendMessage(currentEvent);
             
+            // Check what comes next
             const nextId = currentEvent.nextId || currentEvent.id + 1;
-            currentEvent = findEventById(nextId);
+            const nextEvent = findEventById(nextId);
+            
+            if (nextEvent && nextEvent.chatId === currentEvent.chatId) {
+                // There's a next event in this chat, add continue button
+                addContinueButtonIfNeeded(currentEvent.chatId);
+            }
+            
+        } else if (currentEvent.type === 'playerChoice') {
+            unlockedMessageIds.add(currentEvent.id);
+            renderChoices(currentEvent);
         }
         
-        if (currentEvent && currentEvent.type === 'playerChoice') {
-            unlockedMessageIds.add(currentEvent.id);
-        }
-
         renderChatList();
-        if (lastMessageChatId) {
-            openChat(lastMessageChatId);
-        } else if (currentEvent) {
-            openChat(currentEvent.chatId);
-        }
+        scrollToBottom();
     };
 
     // --- START GAME & RENDERING ---
@@ -138,36 +118,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     
-    const openChat = (chatId) => {
+    const openChat = (chatId, skipAutoProgression = false) => {
+        const chat = storyData.chats.find(c => c.id === chatId);
+        chatTitle.textContent = chat.name;
+        
+        // Show the complete chat history for this chat
+        showCompleteChatHistory(chatId);
+        
+        showScreen('chat');
+        
+        // No more auto-progression - typing animations only happen on click
+    };
+
+    const startStoryProgression = async (chatId) => {
+        // Clear the chat and start fresh progression
         const chat = storyData.chats.find(c => c.id === chatId);
         chatTitle.textContent = chat.name;
         messageContainer.innerHTML = '';
-        choicesContainer.style.display = 'none'; // Hide choices by default
+        choicesContainer.style.display = 'none';
         choicesContainer.innerHTML = '';
         
-        let lastDate = null;
-        const messagesAndChoices = storyData.script.filter(item => item.chatId === chatId && unlockedMessageIds.has(item.id));
-
-        messagesAndChoices.forEach(item => {
-            if (item.type === 'message') {
-                if (item.timestamp && item.timestamp.date !== lastDate) {
-                    const dateDiv = document.createElement('div');
-                    dateDiv.className = 'date-divider';
-                    dateDiv.textContent = item.timestamp.date;
-                    messageContainer.appendChild(dateDiv);
-                    lastDate = item.timestamp.date;
-                }
-                appendMessage(item, false); // Don't auto-scroll when just loading a chat log
-            } else if (item.type === 'playerChoice') {
-                renderChoices(item);
-            }
-        });
-        
         showScreen('chat');
-        // Scroll to bottom only when opening the chat log
-        scrollToBottom();
+        
+        // Find the first unlocked message for this chat
+        const firstMessage = storyData.script.find(item => 
+            item.chatId === chatId && 
+            unlockedMessageIds.has(item.id) && 
+            item.type === 'message'
+        );
+        
+        if (firstMessage) {
+            // Start story progression from the first message
+            await processStory(firstMessage.id);
+        }
     };
-    
+
     const appendMessage = (messageData, shouldScroll = true) => {
         const isSent = messageData.author === 'Alana';
         const messageDiv = document.createElement('div');
@@ -185,6 +170,18 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const renderChoices = (choiceData) => {
+        // Only show choices if there are actual choices to display
+        if (!choiceData.choices || choiceData.choices.length === 0) {
+            choicesContainer.style.display = 'none';
+            return;
+        }
+        
+        // Clear any existing continue button when showing choices
+        const existingContinueButton = document.querySelector('.continue-button-container');
+        if (existingContinueButton) {
+            existingContinueButton.remove();
+        }
+        
         choicesContainer.innerHTML = '';
         choicesContainer.style.display = 'block'; // Show the container
         choiceData.choices.forEach(choice => {
@@ -200,20 +197,143 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollToBottom(); // Ensure choices are visible
     };
 
+    const startStoryProgressionIfNeeded = async (chatId) => {
+        // Find the next unlocked message that should trigger story progression
+        const unlockedMessages = storyData.script.filter(item => 
+            item.chatId === chatId && 
+            unlockedMessageIds.has(item.id)
+        );
+        
+        // Find the last unlocked message
+        const lastUnlockedMessage = unlockedMessages[unlockedMessages.length - 1];
+        
+        if (lastUnlockedMessage && lastUnlockedMessage.type === 'message') {
+            // Check if there's a next message that should be unlocked
+            const nextId = lastUnlockedMessage.nextId || lastUnlockedMessage.id + 1;
+            const nextEvent = findEventById(nextId);
+            
+            if (nextEvent && nextEvent.chatId === chatId && !unlockedMessageIds.has(nextEvent.id)) {
+                // There's a new message to unlock, start story progression
+                await processStory(nextId);
+            }
+        } else if (lastUnlockedMessage && lastUnlockedMessage.type === 'playerChoice') {
+            // If the last unlocked item is a choice, we need to wait for player input
+            // Don't auto-progress, just show the choices
+            const choiceData = lastUnlockedMessage;
+            if (choiceData.choices && choiceData.choices.length > 0) {
+                renderChoices(choiceData);
+            }
+        }
+    };
+
+    const showCompleteChatHistory = (chatId) => {
+        // Clear the chat
+        messageContainer.innerHTML = '';
+        choicesContainer.style.display = 'none';
+        choicesContainer.innerHTML = '';
+        
+        // Remove any existing continue buttons
+        const existingContinueButton = document.querySelector('.continue-button-container');
+        if (existingContinueButton) {
+            existingContinueButton.remove();
+        }
+        
+        let lastDate = null;
+        
+        // Get all unlocked messages and choices for this chat, sorted by ID
+        const allItems = storyData.script
+            .filter(item => item.chatId === chatId && unlockedMessageIds.has(item.id))
+            .sort((a, b) => a.id - b.id);
+        
+        // Find the last unlocked item to determine if choices should be shown
+        const lastUnlockedItem = allItems[allItems.length - 1];
+        const shouldShowChoices = lastUnlockedItem && 
+                                 lastUnlockedItem.type === 'playerChoice' && 
+                                 lastUnlockedItem.choices && 
+                                 lastUnlockedItem.choices.length > 0;
+        
+        allItems.forEach(item => {
+            if (item.type === 'message') {
+                if (item.timestamp && item.timestamp.date !== lastDate) {
+                    const dateDiv = document.createElement('div');
+                    dateDiv.className = 'date-divider';
+                    dateDiv.textContent = item.timestamp.date;
+                    messageContainer.appendChild(dateDiv);
+                    lastDate = item.timestamp.date;
+                }
+                appendMessage(item, false);
+            }
+            // Don't render choices here - we'll handle them separately
+        });
+        
+        // Only show choices if they're the current active choice (last unlocked item)
+        if (shouldShowChoices) {
+            renderChoices(lastUnlockedItem);
+        } else {
+            // If no choices to show, check if there are more messages to unlock
+            addContinueButtonIfNeeded(chatId);
+        }
+        
+        scrollToBottom();
+    };
+
+    const addContinueButtonIfNeeded = (chatId) => {
+        // Check if there are more messages to unlock
+        const unlockedMessages = storyData.script.filter(item => 
+            item.chatId === chatId && 
+            unlockedMessageIds.has(item.id)
+        );
+        
+        // Find the last unlocked item
+        const lastUnlockedItem = unlockedMessages[unlockedMessages.length - 1];
+        
+        if (lastUnlockedItem) {
+            let nextId;
+            
+            if (lastUnlockedItem.type === 'message') {
+                // If last item is a message, check its nextId
+                nextId = lastUnlockedItem.nextId || lastUnlockedItem.id + 1;
+            } else if (lastUnlockedItem.type === 'playerChoice') {
+                // If last item is a choice, we need to find the next message after the choice
+                // This means the choice has been resolved and there are more messages
+                const nextEvent = findEventById(lastUnlockedItem.id + 1);
+                if (nextEvent && nextEvent.chatId === chatId) {
+                    nextId = nextEvent.id;
+                }
+            }
+            
+            if (nextId) {
+                const nextEvent = findEventById(nextId);
+                
+                if (nextEvent && nextEvent.chatId === chatId && !unlockedMessageIds.has(nextEvent.id)) {
+                    // There's a new event to unlock, add continue button at bottom
+                    const continueButton = document.createElement('div');
+                    continueButton.className = 'continue-button-container';
+                    continueButton.innerHTML = `
+                        <button class="continue-btn">Continue...</button>
+                    `;
+                    
+                    // Add click handler to continue button
+                    continueButton.querySelector('.continue-btn').addEventListener('click', () => {
+                        continueButton.remove(); // Remove the button
+                        processStory(nextId); // Start story progression for just the next event
+                    });
+                    
+                    // Add to the bottom of the screen, not inside message container
+                    const chatScreen = document.getElementById('chat-screen');
+                    chatScreen.appendChild(continueButton);
+                }
+            }
+        }
+    };
+
     // --- EVENT LISTENERS ---
     playButton.addEventListener('click', startGame);
     backButton.addEventListener('click', () => {
         renderChatList();
         showScreen('chatList');
     });
-    // Listener to skip the typing animation
-    mainChatScreen.addEventListener('click', () => {
-        if (skipAnimationHandler) {
-            skipAnimationHandler();
-            skipAnimationHandler = null; // Reset handler after use
-        }
-    });
-
+    
     // --- INITIAL CALL ---
     showScreen('start');
 });
