@@ -160,6 +160,69 @@ header {
     display: block; /* Make it take its own line */
 }
 
+/* Chat transition notification styles */
+.message.chat-transition {
+    background-color: #3a2a4d;
+    border: 1px solid #5a4a6d;
+    text-align: center;
+    margin: 10px auto;
+    max-width: 80%;
+}
+
+.message.chat-transition .text {
+    margin-bottom: 10px;
+    color: #d0c0e0;
+}
+
+.transition-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.go-to-chat-btn, .auto-navigate-btn {
+    background-color: #6a5a7d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+}
+
+.go-to-chat-btn:hover, .auto-navigate-btn:hover {
+    background-color: #7a6a8d;
+}
+
+.auto-navigate-btn {
+    background-color: #4a3a5d;
+}
+
+.auto-navigate-btn:hover {
+    background-color: #5a4a6d;
+}
+
+/* Chat list new message indicators */
+.chat-item.has-new-messages {
+    background-color: #3a2a4d;
+    border-left: 3px solid #6a5a7d;
+}
+
+.new-message-indicator {
+    color: #ff6b6b;
+    font-size: 1.2em;
+    margin-left: 8px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
 .date-divider {
     align-self: center;
     background-color: #4a3a5d;

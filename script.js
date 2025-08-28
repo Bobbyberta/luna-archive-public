@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- GAME STATE ---
     let storyData = {};
     let unlockedMessageIds = new Set();
+    let viewedChatIds = new Set(); // Track which chats have been viewed
 
     // --- CORE FUNCTIONS ---
 
@@ -28,6 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const findEventById = (id) => storyData.script.find(event => event.id === id);
+
+    const hasUnreadMessages = (chatId) => {
+        // Check if there are unlocked messages in this chat that haven't been viewed
+        const unlockedMessagesInChat = storyData.script.filter(item => 
+            item.chatId === chatId && 
+            unlockedMessageIds.has(item.id)
+        );
+        
+        // If there are unlocked messages and the chat hasn't been viewed, it has new messages
+        return unlockedMessagesInChat.length > 0 && !viewedChatIds.has(chatId);
+    };
 
     const scrollToBottom = () => {
         messageContainer.scrollTop = messageContainer.scrollHeight;
@@ -63,6 +75,36 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollToBottom();
     };
 
+    const showChatTransitionNotification = (fromChatId, toChatId) => {
+        const fromChat = storyData.chats.find(c => c.id === fromChatId);
+        const toChat = storyData.chats.find(c => c.id === toChatId);
+        
+        const notification = document.createElement('div');
+        notification.className = 'message system chat-transition';
+        notification.innerHTML = `
+            <p class="text">Story continues in <strong>${toChat.name}</strong>...</p>
+            <div class="transition-buttons">
+                <button class="go-to-chat-btn" data-chat-id="${toChatId}">Go to ${toChat.name}</button>
+                <button class="auto-navigate-btn" data-chat-id="${toChatId}">Auto-navigate</button>
+            </div>
+        `;
+        messageContainer.appendChild(notification);
+        
+        // Add click handlers to the buttons
+        notification.querySelector('.go-to-chat-btn').addEventListener('click', () => {
+            openChat(toChatId);
+        });
+        
+        notification.querySelector('.auto-navigate-btn').addEventListener('click', () => {
+            // Auto-navigate to the new chat after a short delay
+            setTimeout(() => {
+                openChat(toChatId);
+            }, 1000);
+        });
+        
+        scrollToBottom();
+    };
+
     const processStory = async (startId) => {
         let currentEvent = findEventById(startId);
         
@@ -77,9 +119,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const nextId = currentEvent.nextId || currentEvent.id + 1;
             const nextEvent = findEventById(nextId);
             
-            if (nextEvent && nextEvent.chatId === currentEvent.chatId) {
-                // There's a next event in this chat, add continue button
-                addContinueButtonIfNeeded(currentEvent.chatId);
+            if (nextEvent) {
+                if (nextEvent.chatId === currentEvent.chatId) {
+                    // There's a next event in this chat, add continue button
+                    addContinueButtonIfNeeded(currentEvent.chatId);
+                } else {
+                    // The next event is in a different chat - unlock it and update chat list
+                    unlockedMessageIds.add(nextEvent.id);
+                    renderChatList();
+                    
+                    // Show a notification that the story has moved to a different chat
+                    showChatTransitionNotification(currentEvent.chatId, nextEvent.chatId);
+                }
             }
             
         } else if (currentEvent.type === 'playerChoice') {
@@ -94,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- START GAME & RENDERING ---
 
     const startGame = async () => {
-        const response = await fetch('story.json');
+        const response = await fetch('luna-archive-linear-script.json');
         storyData = await response.json();
         initializeStory();
     };
@@ -104,11 +155,15 @@ document.addEventListener('DOMContentLoaded', () => {
         storyData.chats.forEach(chat => {
             const allMessagesForChat = [...storyData.script].filter(item => item.chatId === chat.id && unlockedMessageIds.has(item.id));
             const lastMessage = allMessagesForChat.pop();
+            
+            // Check if there are new messages available (unlocked but not yet viewed)
+            const hasNewMessages = hasUnreadMessages(chat.id);
+            
             const li = document.createElement('li');
-            li.className = 'chat-item';
+            li.className = `chat-item ${hasNewMessages ? 'has-new-messages' : ''}`;
             li.innerHTML = `
                 <div class="chat-item-info">
-                    <h3>${chat.name}</h3>
+                    <h3>${chat.name} ${hasNewMessages ? '<span class="new-message-indicator">●</span>' : ''}</h3>
                     <span>${lastMessage && lastMessage.timestamp ? lastMessage.timestamp.time : ''}</span>
                 </div>
                 <p>${lastMessage ? (lastMessage.type === 'message' ? lastMessage.text : 'Choose a response...') : 'No messages yet'}</p>
@@ -121,6 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const openChat = (chatId, skipAutoProgression = false) => {
         const chat = storyData.chats.find(c => c.id === chatId);
         chatTitle.textContent = chat.name;
+        
+        // Mark this chat as viewed
+        viewedChatIds.add(chatId);
         
         // Show the complete chat history for this chat
         showCompleteChatHistory(chatId);
@@ -305,23 +363,30 @@ document.addEventListener('DOMContentLoaded', () => {
             if (nextId) {
                 const nextEvent = findEventById(nextId);
                 
-                if (nextEvent && nextEvent.chatId === chatId && !unlockedMessageIds.has(nextEvent.id)) {
-                    // There's a new event to unlock, add continue button at bottom
-                    const continueButton = document.createElement('div');
-                    continueButton.className = 'continue-button-container';
-                    continueButton.innerHTML = `
-                        <button class="continue-btn">Continue...</button>
-                    `;
-                    
-                    // Add click handler to continue button
-                    continueButton.querySelector('.continue-btn').addEventListener('click', () => {
-                        continueButton.remove(); // Remove the button
-                        processStory(nextId); // Start story progression for just the next event
-                    });
-                    
-                    // Add to the bottom of the screen, not inside message container
-                    const chatScreen = document.getElementById('chat-screen');
-                    chatScreen.appendChild(continueButton);
+                if (nextEvent && !unlockedMessageIds.has(nextEvent.id)) {
+                    if (nextEvent.chatId === chatId) {
+                        // There's a new event in the same chat, add continue button
+                        const continueButton = document.createElement('div');
+                        continueButton.className = 'continue-button-container';
+                        continueButton.innerHTML = `
+                            <button class="continue-btn">Continue...</button>
+                        `;
+                        
+                        // Add click handler to continue button
+                        continueButton.querySelector('.continue-btn').addEventListener('click', () => {
+                            continueButton.remove(); // Remove the button
+                            processStory(nextId); // Start story progression for just the next event
+                        });
+                        
+                        // Add to the bottom of the screen, not inside message container
+                        const chatScreen = document.getElementById('chat-screen');
+                        chatScreen.appendChild(continueButton);
+                    } else {
+                        // The next event is in a different chat - unlock it and show transition notification
+                        unlockedMessageIds.add(nextEvent.id);
+                        renderChatList();
+                        showChatTransitionNotification(chatId, nextEvent.chatId);
+                    }
                 }
             }
         }
