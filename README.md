@@ -1,25 +1,22 @@
 # Luna Archive Narrative - Web Application
 
-An immersive interactive chat-based narrative experience built with vanilla HTML, CSS, and JavaScript. Step into a futuristic world where you navigate through conversations and make choices that shape your story.
+An immersive interactive chat-based narrative experience built with vanilla HTML, CSS, and JavaScript. Step into a futuristic world where you navigate through conversations.
 
 ## 🌟 Features
 
 - **Interactive Chat Interface**: Experience the story through realistic chat conversations
 - **Multiple Characters**: Engage with different characters including ARC-A, Jax, Lena, and Alana
 - **Story Progression**: Unlock new messages and conversations as you progress
-- **Choice-Based Gameplay**: Make decisions that influence the narrative flow
 - **Progress Tracking**: Visual progress bar shows your advancement through the story
 - **Responsive Design**: Optimized for mobile-first experience with a phone-like interface
 - **Unread Message Indicators**: Clear visual cues for new content
-- **Smooth Animations**: Typing indicators and smooth transitions enhance immersion
 
 ## 🎮 How to Play
 
 1. **Start**: Click "Play" on the welcome screen
 2. **Navigate**: Use the chat list to see available conversations
 3. **Read**: Tap on any chat to view messages and continue the story
-4. **Choose**: When presented with choices, select your response
-5. **Progress**: Watch the progress bar fill as you advance through the story
+4. **Progress**: Watch the progress bar fill as you advance through the story
 
 ## 🚀 Getting Started
 
