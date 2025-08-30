@@ -39,7 +39,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) ARC-A has found something",
+      "text":  "ARC-A has found something",
       "timestamp": {
         "date": "8 May 2072",
         "time": "20:48"
@@ -483,7 +483,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) It's walling us off from a specific place and time.",
+      "text":  "It's walling us off from a specific place and time.",
       "timestamp": {
         "date": "8 May 2072",
         "time": "21:25"
@@ -495,7 +495,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) Encrypted channel. Now.",
+      "text":  "Encrypted channel. Now.",
       "timestamp": {
         "date": "8 May 2072",
         "time": "21:26"
@@ -975,7 +975,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) Why? What's wrong?",
+      "text":  "Why? What's wrong?",
       "timestamp": {
         "date": "9 May 2072",
         "time": "01:54"
@@ -999,7 +999,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) Isn't that what we all want?",
+      "text":  "Isn't that what we all want?",
       "timestamp": {
         "date": "9 May 2072",
         "time": "01:56"
@@ -1023,7 +1023,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) What do you mean?",
+      "text":  "What do you mean?",
       "timestamp": {
         "date": "9 May 2072",
         "time": "01:58"
@@ -1047,7 +1047,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) But you were right. About everything.",
+      "text":  "But you were right. About everything.",
       "timestamp": {
         "date": "9 May 2072",
         "time": "02:00"
@@ -1071,7 +1071,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) What would you have done differently?",
+      "text":  "What would you have done differently?",
       "timestamp": {
         "date": "9 May 2072",
         "time": "02:02"
@@ -1095,7 +1095,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) I'm sorry, Lena. I didn't know.",
+      "text":  "I'm sorry, Lena. I didn't know.",
       "timestamp": {
         "date": "9 May 2072",
         "time": "02:04"
@@ -1119,7 +1119,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) What can we do?",
+      "text":  "What can we do?",
       "timestamp": {
         "date": "9 May 2072",
         "time": "02:06"
@@ -1143,7 +1143,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) He's not going to listen to us.",
+      "text":  "He's not going to listen to us.",
       "timestamp": {
         "date": "9 May 2072",
         "time": "02:08"
@@ -1167,7 +1167,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) Morning. Any luck?",
+      "text":  "Morning. Any luck?",
       "timestamp": {
         "date": "9 May 2072",
         "time": "09:10"
@@ -1239,7 +1239,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) Let's not wait. We'll re-present co-ords and date, and see how it reacts. We might learn something about its defenses we don't already know.",
+      "text":  "Let's not wait. We'll re-present co-ords and date, and see how it reacts. We might learn something about its defenses we don't already know.",
       "timestamp": {
         "date": "9 May 2072",
         "time": "09:16"
@@ -1275,7 +1275,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) That's a risk we'll have to take. If we can see how it denies the data, we might find a weakness.",
+      "text":  "That's a risk we'll have to take. If we can see how it denies the data, we might find a weakness.",
       "timestamp": {
         "date": "9 May 2072",
         "time": "09:19"
@@ -1383,7 +1383,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) Maybe we're looking in the wrong place. Lena, are there any physical records from that era? Paper logs? Anything that was never digitized?",
+      "text":  "Maybe we're looking in the wrong place. Lena, are there any physical records from that era? Paper logs? Anything that was never digitized?",
       "timestamp": {
         "date": "9 May 2072",
         "time": "09:28"
@@ -1431,7 +1431,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) Anything?",
+      "text":  "Anything?",
       "timestamp": {
         "date": "9 May 2072",
         "time": "20:39"
@@ -1479,7 +1479,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) What about her?",
+      "text":  "What about her?",
       "timestamp": {
         "date": "10 May 2072",
         "time": "00:36"
@@ -1503,7 +1503,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) I know. The last time I visited, there were stacks of paper everywhere. She's running out of space to store her archives.",
+      "text":  "I know. The last time I visited, there were stacks of paper everywhere. She's running out of space to store her archives.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "00:38"
@@ -1527,7 +1527,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) They called her a conspiracy theorist. A \"digital archaeologist\" who couldn't tell fact from fiction. But she was right about everything.",
+      "text":  "They called her a conspiracy theorist. A \"digital archaeologist\" who couldn't tell fact from fiction. But she was right about everything.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "00:40"
@@ -1551,7 +1551,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) She's stronger than any of us. To keep fighting after everything they took from her.",
+      "text":  "She's stronger than any of us. To keep fighting after everything they took from her.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "00:42"
@@ -1575,7 +1575,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) That's why we need to find the truth. Not just for Luna, but for Lena. To prove she wasn't crazy. To give her back her reputation.",
+      "text":  "That's why we need to find the truth. Not just for Luna, but for Lena. To prove she wasn't crazy. To give her back her reputation.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "00:44"
@@ -1599,7 +1599,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) I'm managing. It's been six months, but sometimes it still feels like yesterday.",
+      "text":  "I'm managing. It's been six months, but sometimes it still feels like yesterday.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "00:46"
@@ -1623,7 +1623,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) I can't. Her house is already cramped with all the kids. There's no room for me and all of Dad's things.",
+      "text":  "I can't. Her house is already cramped with all the kids. There's no room for me and all of Dad's things.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "00:48"
@@ -1647,7 +1647,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) I'm still going through them. Boxes and boxes of handwritten observations. He was onto something, Jax. Something about how systems hide their secrets in the smallest details.",
+      "text":  "I'm still going through them. Boxes and boxes of handwritten observations. He was onto something, Jax. Something about how systems hide their secrets in the smallest details.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "00:50"
@@ -1671,7 +1671,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Exactly. Dad always said the biggest lies leave the smallest traces. You just have to know where to look.",
+      "text":  "Exactly. Dad always said the biggest lies leave the smallest traces. You just have to know where to look.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "00:52"
@@ -1695,7 +1695,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) I hope so. Sometimes I wonder if he knew more than he let on. If he was investigating Sol-Fusion before he died.",
+      "text":  "I hope so. Sometimes I wonder if he knew more than he let on. If he was investigating Sol-Fusion before he died.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "00:54"
@@ -1719,7 +1719,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) I don't know. But I found some coordinates in his notes. Coordinates that match the old weather station. He was looking in the same places we are.",
+      "text":  "I don't know. But I found some coordinates in his notes. Coordinates that match the old weather station. He was looking in the same places we are.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "00:56"
@@ -1743,7 +1743,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) No, it's not. And that's why we can't stop. Not just for Lena, but for Dad. For all those who were denied the truth.",
+      "text":  "No, it's not. And that's why we can't stop. Not just for Lena, but for Dad. For all those who were denied the truth.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "00:58"
@@ -1767,7 +1767,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) That's what scares me. The closer we get, the more dangerous this becomes.",
+      "text":  "That's what scares me. The closer we get, the more dangerous this becomes.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "01:00"
@@ -1791,7 +1791,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Promise me something, Jax.",
+      "text":  "Promise me something, Jax.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "01:02"
@@ -1815,7 +1815,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) If something happens to me, you'll look after Lena. Make sure she's okay.",
+      "text":  "If something happens to me, you'll look after Lena. Make sure she's okay.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "01:04"
@@ -1839,7 +1839,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Thank you. Now let's get back to work. We have a conspiracy to expose.",
+      "text":  "Thank you. Now let's get back to work. We have a conspiracy to expose.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "01:06"
@@ -1863,7 +1863,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) And maybe, just maybe, give Luna back its future.",
+      "text":  "And maybe, just maybe, give Luna back its future.",
       "timestamp": {
         "date": "10 May 2072",
         "time": "01:08"
@@ -1887,7 +1887,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) And?",
+      "text":  "And?",
       "timestamp": {
         "date": "10 May 2072",
         "time": "10:10"
@@ -1911,7 +1911,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) What was the official explanation?",
+      "text":  "What was the official explanation?",
       "timestamp": {
         "date": "10 May 2072",
         "time": "10:12"
@@ -1983,7 +1983,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) It's our first piece of real evidence. Proof the official story is a lie. So what’s our next move?",
+      "text":  "It's our first piece of real evidence. Proof the official story is a lie. So what’s our next move?",
       "timestamp": {
         "date": "10 May 2072",
         "time": "10:18"
@@ -2282,7 +2282,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) Message me if you find anything",
+      "text":  "Message me if you find anything",
       "timestamp": {
         "date": "10 May 2072",
         "time": "10:43"
@@ -2294,7 +2294,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Jax? You still awake?",
+      "text":  "Jax? You still awake?",
       "timestamp": {
         "date": "11 May 2072",
         "time": "00:44"
@@ -2318,7 +2318,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) What about it?",
+      "text":  "What about it?",
       "timestamp": {
         "date": "11 May 2072",
         "time": "00:46"
@@ -2342,7 +2342,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) She says the books keep her company. That they're her friends.",
+      "text":  "She says the books keep her company. That they're her friends.",
       "timestamp": {
         "date": "11 May 2072",
         "time": "00:48"
@@ -2366,7 +2366,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) You're right. But she won't accept help. She's too proud.",
+      "text":  "You're right. But she won't accept help. She's too proud.",
       "timestamp": {
         "date": "11 May 2072",
         "time": "00:50"
@@ -2390,7 +2390,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Maybe we should check on her more often. Drop by unannounced.",
+      "text":  "Maybe we should check on her more often. Drop by unannounced.",
       "timestamp": {
         "date": "11 May 2072",
         "time": "00:52"
@@ -2414,7 +2414,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Better she hates us than something happens to her.",
+      "text":  "Better she hates us than something happens to her.",
       "timestamp": {
         "date": "11 May 2072",
         "time": "00:54"
@@ -2438,7 +2438,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) And we'll bring food. Real food, not just the protein bars she lives on.",
+      "text":  "And we'll bring food. Real food, not just the protein bars she lives on.",
       "timestamp": {
         "date": "11 May 2072",
         "time": "00:56"
@@ -2462,7 +2462,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) I had some coffee.",
+      "text":  "I had some coffee.",
       "timestamp": {
         "date": "11 May 2072",
         "time": "00:58"
@@ -2486,7 +2486,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) I know. I just... I don't have much appetite lately.",
+      "text":  "I know. I just... I don't have much appetite lately.",
       "timestamp": {
         "date": "11 May 2072",
         "time": "01:00"
@@ -2510,7 +2510,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Yeah. Everything tastes like ash.",
+      "text":  "Yeah. Everything tastes like ash.",
       "timestamp": {
         "date": "11 May 2072",
         "time": "01:02"
@@ -2534,7 +2534,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) I know that too. It's just hard to remember sometimes.",
+      "text":  "I know that too. It's just hard to remember sometimes.",
       "timestamp": {
         "date": "11 May 2072",
         "time": "01:04"
@@ -2558,7 +2558,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Thank you, Jax. For everything.",
+      "text":  "Thank you, Jax. For everything.",
       "timestamp": {
         "date": "11 May 2072",
         "time": "01:06"
@@ -2582,7 +2582,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Goodnight, Jax.",
+      "text":  "Goodnight, Jax.",
       "timestamp": {
         "date": "11 May 2072",
         "time": "01:08"
@@ -2798,7 +2798,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) Let him work, Lena. I think I see it.",
+      "text":  "Let him work, Lena. I think I see it.",
       "timestamp": {
         "date": "11 May 2072",
         "time": "20:26"
@@ -2870,7 +2870,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) Is she findable?",
+      "text":  "Is she findable?",
       "timestamp": {
         "date": "11 May 2072",
         "time": "20:32"
@@ -2918,7 +2918,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) You think she's there?",
+      "text":  "You think she's there?",
       "timestamp": {
         "date": "11 May 2072",
         "time": "20:36"
@@ -2966,7 +2966,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) We can go with you.",
+      "text":  "We can go with you.",
       "timestamp": {
         "date": "11 May 2072",
         "time": "20:40"
@@ -3110,7 +3110,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) Stay safe, Lena.",
+      "text":  "Stay safe, Lena.",
       "timestamp": {
         "date": "12 May 2072",
         "time": "09:48"
@@ -3170,7 +3170,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) That has to be her.",
+      "text":  "That has to be her.",
       "timestamp": {
         "date": "12 May 2072",
         "time": "11:10"
@@ -3206,7 +3206,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) She'll be okay, Jax. She's tougher than anyone.",
+      "text":  "She'll be okay, Jax. She's tougher than anyone.",
       "timestamp": {
         "date": "12 May 2072",
         "time": "11:18"
@@ -3266,7 +3266,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) How did you get her to talk?",
+      "text":  "How did you get her to talk?",
       "timestamp": {
         "date": "12 May 2072",
         "time": "12:18"
@@ -3314,7 +3314,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) No Lena, it's not cold. You found the next link",
+      "text":  "No Lena, it's not cold. You found the next link",
       "timestamp": {
         "date": "12 May 2072",
         "time": "12:23"
@@ -3350,7 +3350,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) I'm managing. Some days are harder than others.",
+      "text":  "I'm managing. Some days are harder than others.",
       "timestamp": {
         "date": "12 May 2072",
         "time": "18:27"
@@ -3374,7 +3374,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) You were close?",
+      "text":  "You were close?",
       "timestamp": {
         "date": "12 May 2072",
         "time": "18:29"
@@ -3398,7 +3398,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) What was he like?",
+      "text":  "What was he like?",
       "timestamp": {
         "date": "12 May 2072",
         "time": "18:31"
@@ -3422,7 +3422,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) What happened?",
+      "text":  "What happened?",
       "timestamp": {
         "date": "12 May 2072",
         "time": "18:33"
@@ -3446,7 +3446,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) I'm so sorry, Lena.",
+      "text":  "I'm so sorry, Lena.",
       "timestamp": {
         "date": "12 May 2072",
         "time": "18:35"
@@ -3470,7 +3470,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) What are you saying?",
+      "text":  "What are you saying?",
       "timestamp": {
         "date": "12 May 2072",
         "time": "18:37"
@@ -3494,7 +3494,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) I know that. But it might give his research meaning.",
+      "text":  "I know that. But it might give his research meaning.",
       "timestamp": {
         "date": "12 May 2072",
         "time": "18:39"
@@ -3518,7 +3518,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) How do you know?",
+      "text":  "How do you know?",
       "timestamp": {
         "date": "12 May 2072",
         "time": "18:41"
@@ -3542,7 +3542,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) I don't want to make the same mistakes.",
+      "text":  "I don't want to make the same mistakes.",
       "timestamp": {
         "date": "12 May 2072",
         "time": "18:43"
@@ -3734,7 +3734,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) It's protecting the lie at a fundamental level. Another dead end?",
+      "text":  "It's protecting the lie at a fundamental level. Another dead end?",
       "timestamp": {
         "date": "13 May 2072",
         "time": "13:18"
@@ -3842,7 +3842,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Jax",
-      "text": "(You) ARC-A, we have a new query. We are providing you with the name of the archivist who logged the barometric pressure anomaly at Sol-Fusion. The name is Kai Sato. Cross-reference this individual with the event.",
+      "text":  "ARC-A, we have a new query. We are providing you with the name of the archivist who logged the barometric pressure anomaly at Sol-Fusion. The name is Kai Sato. Cross-reference this individual with the event.",
       "timestamp": {
         "date": "13 May 2072",
         "time": "13:27"
@@ -3902,7 +3902,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) Unreliable? On what grounds?",
+      "text":  "Unreliable? On what grounds?",
       "timestamp": {
         "date": "13 May 2072",
         "time": "13:32"
@@ -3974,7 +3974,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) What is it?",
+      "text":  "What is it?",
       "timestamp": {
         "date": "13 May 2072",
         "time": "20:38"
@@ -4022,7 +4022,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) So ARC-A is... clean?",
+      "text":  "So ARC-A is... clean?",
       "timestamp": {
         "date": "13 May 2072",
         "time": "20:42"
@@ -4070,7 +4070,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) That's a huge risk. What if it backfires?",
+      "text":  "That's a huge risk. What if it backfires?",
       "timestamp": {
         "date": "13 May 2072",
         "time": "20:46"
@@ -4118,7 +4118,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) So ARC-A is our only shot at getting through?",
+      "text":  "So ARC-A is our only shot at getting through?",
       "timestamp": {
         "date": "13 May 2072",
         "time": "20:50"
@@ -4154,7 +4154,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) How do we know it won't turn on us?",
+      "text":  "How do we know it won't turn on us?",
       "timestamp": {
         "date": "13 May 2072",
         "time": "20:53"
@@ -4202,7 +4202,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) But what about the quarantine protocols? If ARC-A has them built in...",
+      "text":  "But what about the quarantine protocols? If ARC-A has them built in...",
       "timestamp": {
         "date": "13 May 2072",
         "time": "20:57"
@@ -4250,7 +4250,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) This is getting complicated. We're not just fighting a lie; we're fighting an entire system designed to maintain it.",
+      "text":  "This is getting complicated. We're not just fighting a lie; we're fighting an entire system designed to maintain it.",
       "timestamp": {
         "date": "13 May 2072",
         "time": "21:01"
@@ -4298,7 +4298,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) A crack that could spread?",
+      "text":  "A crack that could spread?",
       "timestamp": {
         "date": "13 May 2072",
         "time": "21:05"
@@ -4358,7 +4358,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) The quarantine isn't just a lock; it's a gag order. We need to find out who put it there. Finding the original ARC-A developers is impossible, they'd be long dead.",
+      "text":  "The quarantine isn't just a lock; it's a gag order. We need to find out who put it there. Finding the original ARC-A developers is impossible, they'd be long dead.",
       "timestamp": {
         "date": "14 May 2072",
         "time": "14:58"
@@ -4382,7 +4382,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) Let it run. If there's a name attached to that firewall, we need it.",
+      "text":  "Let it run. If there's a name attached to that firewall, we need it.",
       "timestamp": {
         "date": "14 May 2072",
         "time": "15:00"
@@ -4406,7 +4406,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) Yeah. Can't sleep. Thinking about what you said.",
+      "text":  "Yeah. Can't sleep. Thinking about what you said.",
       "timestamp": {
         "date": "14 May 2072",
         "time": "23:02"
@@ -4430,7 +4430,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) About everything. About balance, about family, about not losing yourself in the fight.",
+      "text":  "About everything. About balance, about family, about not losing yourself in the fight.",
       "timestamp": {
         "date": "14 May 2072",
         "time": "23:04"
@@ -4454,7 +4454,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) It is. But I think you're right. About all of it.",
+      "text":  "It is. But I think you're right. About all of it.",
       "timestamp": {
         "date": "14 May 2072",
         "time": "23:06"
@@ -4478,7 +4478,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) I won't. I promise.",
+      "text":  "I won't. I promise.",
       "timestamp": {
         "date": "14 May 2072",
         "time": "23:08"
@@ -4502,7 +4502,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) Goodnight, Lena.",
+      "text":  "Goodnight, Lena.",
       "timestamp": {
         "date": "14 May 2072",
         "time": "23:10"
@@ -4814,7 +4814,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Yeah. Can't stop thinking about what we're doing.",
+      "text":  "Yeah. Can't stop thinking about what we're doing.",
       "timestamp": {
         "date": "16 May 2072",
         "time": "02:03"
@@ -4838,7 +4838,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) The consequences. If we actually find the truth about Sol-Fusion, what happens to us?",
+      "text":  "The consequences. If we actually find the truth about Sol-Fusion, what happens to us?",
       "timestamp": {
         "date": "16 May 2072",
         "time": "02:05"
@@ -4862,7 +4862,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Or we'll be dead. Or worse, discredited like Lena.",
+      "text":  "Or we'll be dead. Or worse, discredited like Lena.",
       "timestamp": {
         "date": "16 May 2072",
         "time": "02:07"
@@ -4886,7 +4886,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) He died before he could finish his research. What if the same thing happens to us?",
+      "text":  "He died before he could finish his research. What if the same thing happens to us?",
       "timestamp": {
         "date": "16 May 2072",
         "time": "02:09"
@@ -4910,7 +4910,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Lena was careful too. She had tenure, respect, a career. And they still destroyed her.",
+      "text":  "Lena was careful too. She had tenure, respect, a career. And they still destroyed her.",
       "timestamp": {
         "date": "16 May 2072",
         "time": "02:11"
@@ -4934,7 +4934,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) I know. I just... I don't want to end up like her. Alone in a house full of books, with nothing but memories of what could have been.",
+      "text":  "I know. I just... I don't want to end up like her. Alone in a house full of books, with nothing but memories of what could have been.",
       "timestamp": {
         "date": "16 May 2072",
         "time": "02:13"
@@ -4958,7 +4958,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Promise?",
+      "text":  "Promise?",
       "timestamp": {
         "date": "16 May 2072",
         "time": "02:15"
@@ -4982,7 +4982,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Thank you, Jax. That means more than you know.",
+      "text":  "Thank you, Jax. That means more than you know.",
       "timestamp": {
         "date": "16 May 2072",
         "time": "02:17"
@@ -5006,7 +5006,7 @@
       "type": "message",
       "chatId": "jax",
       "author": "Alana",
-      "text": "(You) Goodnight, Jax.",
+      "text":  "Goodnight, Jax.",
       "timestamp": {
         "date": "16 May 2072",
         "time": "02:19"
@@ -5042,7 +5042,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) What can you do with that?",
+      "text":  "What can you do with that?",
       "timestamp": {
         "date": "18 May 2072",
         "time": "15:12"
@@ -5090,7 +5090,7 @@
       "type": "message",
       "chatId": "private",
       "author": "Alana",
-      "text": "(You) The stakes just got a lot higher.",
+      "text":  "The stakes just got a lot higher.",
       "timestamp": {
         "date": "18 May 2072",
         "time": "15:16"
@@ -5150,7 +5150,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) I know that.",
+      "text":  "I know that.",
       "timestamp": {
         "date": "18 May 2072",
         "time": "20:21"
@@ -5174,7 +5174,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) And why are we doing it?",
+      "text":  "And why are we doing it?",
       "timestamp": {
         "date": "18 May 2072",
         "time": "20:23"
@@ -5198,7 +5198,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) That's important.",
+      "text":  "That's important.",
       "timestamp": {
         "date": "18 May 2072",
         "time": "20:25"
@@ -5222,7 +5222,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) What if we can't have that? What if the system won't let us?",
+      "text":  "What if we can't have that? What if the system won't let us?",
       "timestamp": {
         "date": "18 May 2072",
         "time": "20:27"
@@ -5246,7 +5246,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) How do we help Jax see that?",
+      "text":  "How do we help Jax see that?",
       "timestamp": {
         "date": "18 May 2072",
         "time": "20:29"
@@ -5270,7 +5270,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) And what about you? Are you finding balance now?",
+      "text":  "And what about you? Are you finding balance now?",
       "timestamp": {
         "date": "18 May 2072",
         "time": "20:31"
@@ -5294,7 +5294,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) That's good.",
+      "text":  "That's good.",
       "timestamp": {
         "date": "18 May 2072",
         "time": "20:33"
@@ -5318,7 +5318,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) Thank you, Lena. For caring about us.",
+      "text":  "Thank you, Lena. For caring about us.",
       "timestamp": {
         "date": "18 May 2072",
         "time": "20:35"
@@ -5342,7 +5342,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) We'll help Jax together.",
+      "text":  "We'll help Jax together.",
       "timestamp": {
         "date": "18 May 2072",
         "time": "20:37"
@@ -5366,7 +5366,7 @@
       "type": "message",
       "chatId": "lena",
       "author": "Alana",
-      "text": "(You) And we'll be there for him when he does.",
+      "text":  "And we'll be there for him when he does.",
       "timestamp": {
         "date": "18 May 2072",
         "time": "20:39"
@@ -5402,7 +5402,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) Jax? What is it?",
+      "text":  "Jax? What is it?",
       "timestamp": {
         "date": "18 May 2072",
         "time": "23:42"
@@ -5450,7 +5450,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) We don't just have proof of a scientific cover-up. We have proof of a stolen future.",
+      "text":  "We don't just have proof of a scientific cover-up. We have proof of a stolen future.",
       "timestamp": {
         "date": "18 May 2072",
         "time": "23:46"
@@ -5498,7 +5498,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) We have the evidence. The uncorrupted truth. We can't let it stay buried.",
+      "text":  "We have the evidence. The uncorrupted truth. We can't let it stay buried.",
       "timestamp": {
         "date": "18 May 2072",
         "time": "23:50"
@@ -5534,7 +5534,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) He's right, Lena. It's a truth that could set everyone free.",
+      "text":  "He's right, Lena. It's a truth that could set everyone free.",
       "timestamp": {
         "date": "18 May 2072",
         "time": "23:53"
@@ -5546,7 +5546,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) ARC-A? Are you online?",
+      "text":  "ARC-A? Are you online?",
       "timestamp": {
         "date": "18 May 2072",
         "time": "23:54"
@@ -5666,7 +5666,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) ARC-A. New directive. Broadcast the full system log of the Sol-Fusion Project to every public and private channel. On Luna, and on Earth. We release the truth.",
+      "text":  "ARC-A. New directive. Broadcast the full system log of the Sol-Fusion Project to every public and private channel. On Luna, and on Earth. We release the truth.",
       "timestamp": {
         "date": "19 May 2072",
         "time": "00:04"
@@ -5774,7 +5774,7 @@
       "type": "message",
       "chatId": "group",
       "author": "Alana",
-      "text": "(You) We planted the seed. We did our part. The rest is up to them.",
+      "text":  "We planted the seed. We did our part. The rest is up to them.",
       "timestamp": {
         "date": "19 May 2072",
         "time": "00:13"

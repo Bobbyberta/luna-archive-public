@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Only unlock the first few messages to start the story
         let currentEvent = findEventById(1);
         let messageCount = 0;
-        const maxInitialMessages = 3; // Only show first 3 messages initially
+        const maxInitialMessages = 1; // Only show first message initially
         
         while (currentEvent && currentEvent.type === 'message' && messageCount < maxInitialMessages) {
             unlockedMessageIds.add(currentEvent.id);
@@ -85,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="text">Story continues in <strong>${toChat.name}</strong>...</p>
             <div class="transition-buttons">
                 <button class="go-to-chat-btn" data-chat-id="${toChatId}">Go to ${toChat.name}</button>
-                <button class="auto-navigate-btn" data-chat-id="${toChatId}">Auto-navigate</button>
             </div>
         `;
         messageContainer.appendChild(notification);
@@ -139,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         renderChatList();
+        updateStoryProgress();
         scrollToBottom();
     };
 
@@ -150,32 +150,79 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeStory();
     };
 
+    const updateStoryProgress = () => {
+        if (!storyData.script || storyData.script.length === 0) return;
+        
+        // Calculate total number of story events (messages and choices)
+        const totalEvents = storyData.script.length;
+        
+        // Calculate number of unlocked events
+        const unlockedEvents = unlockedMessageIds.size;
+        
+        // Calculate progress percentage
+        const progressPercentage = Math.round((unlockedEvents / totalEvents) * 100);
+        
+        // Update progress bar
+        const progressBarFill = document.getElementById('progress-bar-fill');
+        if (progressBarFill) {
+            progressBarFill.style.width = `${progressPercentage}%`;
+        }
+    };
+
     const renderChatList = () => {
         chatListContainer.innerHTML = '';
         storyData.chats.forEach(chat => {
             const allMessagesForChat = [...storyData.script].filter(item => item.chatId === chat.id && unlockedMessageIds.has(item.id));
-            const lastMessage = allMessagesForChat.pop();
+            const lastMessage = allMessagesForChat[allMessagesForChat.length - 1];
             
             // Check if there are new messages available (unlocked but not yet viewed)
             const hasNewMessages = hasUnreadMessages(chat.id);
             
+            // Count unread messages (unlocked but not viewed)
+            const unreadCount = allMessagesForChat.length;
+            
             const li = document.createElement('li');
             li.className = `chat-item ${hasNewMessages ? 'has-new-messages' : ''}`;
+            
+            // Show unread indicator or timestamp
+            const rightSideContent = hasNewMessages ? 
+                `<div class="chat-item-unread-indicator">
+                    <div class="chat-item-unread-count">
+                        <span class="chat-item-unread-number">${unreadCount}</span>
+                        <svg class="chat-item-unread-arrow" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.2071 8.70711C16.5976 8.31658 16.5976 7.68342 16.2071 7.29289L9.84315 0.928932C9.45262 0.538408 8.81946 0.538408 8.42893 0.928932C8.03841 1.31946 8.03841 1.95262 8.42893 2.34315L14.0858 8L8.42893 13.6569C8.03841 14.0474 8.03841 14.6805 8.42893 15.0711C8.81946 15.4616 9.45262 15.4616 9.84315 15.0711L16.2071 8.70711ZM0 8V9H15.5V8V7H0V8Z" fill="white"/>
+                        </svg>
+                    </div>
+                </div>` :
+                `<span class="chat-item-timestamp">${lastMessage && lastMessage.timestamp ? lastMessage.timestamp.time : ''}</span>`;
+            
             li.innerHTML = `
-                <div class="chat-item-info">
-                    <h3>${chat.name} ${hasNewMessages ? '<span class="new-message-indicator">●</span>' : ''}</h3>
-                    <span>${lastMessage && lastMessage.timestamp ? lastMessage.timestamp.time : ''}</span>
+                <div class="chat-item-avatar"></div>
+                <div class="chat-item-content">
+                    <div class="chat-item-header">
+                        <h3 class="chat-item-title">${chat.name}</h3>
+                        ${rightSideContent}
+                    </div>
+                    <p class="chat-item-message">${lastMessage ? (lastMessage.type === 'message' ? lastMessage.text : 'Choose a response...') : 'No messages yet'}</p>
                 </div>
-                <p>${lastMessage ? (lastMessage.type === 'message' ? lastMessage.text : 'Choose a response...') : 'No messages yet'}</p>
             `;
             li.addEventListener('click', () => openChat(chat.id));
             chatListContainer.appendChild(li);
         });
+        
+        // Update progress bar after rendering chat list
+        updateStoryProgress();
     };
     
     const openChat = (chatId, skipAutoProgression = false) => {
         const chat = storyData.chats.find(c => c.id === chatId);
         chatTitle.textContent = chat.name;
+        
+        // Update chat members
+        const chatMembersElement = document.getElementById('chat-members');
+        if (chatMembersElement && chat.members) {
+            chatMembersElement.textContent = chat.members;
+        }
         
         // Mark this chat as viewed
         viewedChatIds.add(chatId);
@@ -214,7 +261,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const appendMessage = (messageData, shouldScroll = true) => {
         const isSent = messageData.author === 'Alana';
         const messageDiv = document.createElement('div');
-        messageDiv.className = 'message ' + (isSent ? 'sent' : 'received');
+        
+        // Create character class name from author
+        const characterClass = messageData.author.toLowerCase().replace(/[^a-z0-9]/g, '-');
+        
+        messageDiv.className = `message ${isSent ? 'sent' : 'received'} character-${characterClass}`;
         const authorHTML = !isSent ? `<strong class="author">${messageData.author}</strong>` : '';
         messageDiv.innerHTML = `
             ${authorHTML}
@@ -398,6 +449,14 @@ document.addEventListener('DOMContentLoaded', () => {
         renderChatList();
         showScreen('chatList');
     });
+    
+    // Home back button (from chat list to start screen)
+    const homeBackButton = document.getElementById('home-back-button');
+    if (homeBackButton) {
+        homeBackButton.addEventListener('click', () => {
+            showScreen('start');
+        });
+    }
     
     // --- INITIAL CALL ---
     showScreen('start');

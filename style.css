@@ -23,6 +23,14 @@ body > div {
     overflow: hidden;
 }
 
+.exo-body {
+    font-family: "Exo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: light;
+    font-style: normal;
+    font-size: 1 rem;
+  }
+
 /* Screen visibility */
 .screen {
     display: none;
@@ -38,22 +46,219 @@ body > div {
     flex-direction: column;
 }
 
+#start-screen h1 {
+    /* Luna Archives */
+    font-family: 'Krona One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0 0 40px 0;
+    width: 266px;
+    height: 90px;
+}
+
 #play-button {
-    background-color: #4a3a5d;
-    color: white;
+    /* Rectangle 1 */
+    width: 223px;
+    height: 48px;
+    background: rgba(217, 217, 217, 0.2);
+    border-radius: 12px;
     border: none;
-    padding: 10px 40px;
-    border-radius: 20px;
     cursor: pointer;
-    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#play-button::before {
+    /* Play */
+    content: "Play";
+    font-family: 'Exo';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+/* Chat List Screen Styling */
+.chat-list-header {
+    height: 26px;
+    padding: 22px 13px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+}
+
+.chat-list-header-content {
+    /* Frame 5 - adjusted for phone screen */
+    width: 100%;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-list-title-container {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.chat-list-arrow {
+    /* Vector 1 */
+    width: 15px;
+    height: 15px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.back-arrow-image {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+}
+
+.chat-list-title {
+    /* Luna Archives */
+    font-family: 'Krona One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #FFFFFF;
+    margin: 0;
+    flex: 1;
+}
+
+.chat-list-avatar {
+    /* Ellipse 1 */
+    width: 26px;
+    height: 26px;
+    background: rgba(217, 217, 217, 0.5);
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
 /* Chat Screen Styling */
 header {
-    padding: 15px;
-    background-color: #3c2a4d;
+    /* Frame 4 styling */
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 12px 12px;
+    gap: 10px;
+    
+    background: rgba(217, 217, 217, 0.2);
+    border-radius: 0px 0px 12px 12px;
+    z-index: 1000;
+}
+
+/* Frame 3 - Inner header container */
+.header-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 6px;
+    gap: 12px;
+    width: 100%;
+    height: 37px;
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+}
+
+#back-button {
+    /* Vector 1 styling */
+    width: 15px;
+    height: 0px;
+    border: none;
+    background: none;
+    cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    padding: 0;
+}
+
+#back-button svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* Avatar placeholder */
+.avatar-placeholder {
+    width: 32px;
+    height: 32px;
+    background: rgba(217, 217, 217, 0.5);
+    border-radius: 50%;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+/* Chat info styling - Frame 2 */
+.chat-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    flex: 1;
+    min-width: 0;
+    height: 37px;
+    flex: none;
+    order: 2;
+    flex-grow: 1;
+}
+
+#chat-title {
+    font-family: 'Exo';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+    color: #FFFFFF;
+    margin: 0;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#chat-members {
+    font-family: 'Exo';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
+    margin: 0;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #message-container {
@@ -125,6 +330,49 @@ header {
 
 #choices-container {
     padding: 15px;
+}
+
+/* Progress Bar Styling */
+.progress-bar-container {
+    padding: 24px;
+}
+
+.progress-bar {
+    height: 40px;
+    background: rgba(217, 217, 217, 0.2);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 16px;
+}
+
+.progress-bar-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: rgba(217, 217, 217, 0.6);
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+.progress-bar-text {
+    font-family: 'Exo';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    color: #FFFFFF;
+    z-index: 1;
+    position: relative;
+}
+
+#chat-list-container {
+    padding: 0 21px;
+    list-style: none;
+    margin: 0;
 }
 
 #choices-container button {
@@ -204,10 +452,10 @@ header {
 }
 
 /* Chat list new message indicators */
-.chat-item.has-new-messages {
+/* .chat-item.has-new-messages {
     background-color: #3a2a4d;
     border-left: 3px solid #6a5a7d;
-}
+} */
 
 .new-message-indicator {
     color: #ff6b6b;
@@ -234,40 +482,143 @@ header {
 
 /* Updated style for chat list items */
 .chat-item {
-    padding: 15px;
-    border-bottom: 1px solid #4a3a5d;
+    /* Group 1 - adjusted for phone screen */
+    width: 100%;
+    max-width: 366px;
+    height: 48px;
+    margin: 0 0 20px 0;
+    padding: 0;
     cursor: pointer;
     transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
 .chat-item:hover {
-    background-color: #3c2a4d;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
 }
 
-.chat-item-info {
+.chat-item-avatar {
+    /* Ellipse 1 */
+    width: 46px;
+    height: 48px;
+    background: rgba(217, 217, 217, 0.5);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.chat-item-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+.chat-item-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
+    align-items: flex-start;
+    margin-bottom: 4px;
 }
 
-.chat-info {
-    padding-left: 10px;
-}
-
-.chat-item-info h3 {
+.chat-item-title {
+    /* Group Chat */
+    font-family: 'Exo';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 27px;
+    color: #FFFFFF;
     margin: 0;
-    color: #e0e0e0;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.chat-item-info span {
-    color: #a0a0a0;
-    font-size: 0.9em;
+.chat-item-timestamp {
+    /* 21:05 */
+    font-family: 'Exo';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: right;
+    color: #FFFFFF;
+    margin: 0;
+    flex-shrink: 0;
+    margin-left: 10px;
 }
 
-.chat-item p {
-    margin: 5px 0 10px 0;
-    color: #c0c0c0;
+.chat-item-unread-indicator {
+    /* Frame 8 */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2px 9px;
+    gap: 10px;
+    width: 48px;
+    height: 25px;
+    background: rgba(217, 217, 217, 0.4);
+    border-radius: 12px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-item-unread-count {
+    /* Frame 7 */
+    width: 29.5px;
+    height: 21px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-item-unread-number {
+    /* 3 */
+    font-family: 'Exo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: right;
+    color: #FFFFFF;
+    margin: 0;
+    flex: 1;
+}
+
+.chat-item-unread-arrow {
+    /* Vector 2 */
+    width: 17px;
+    height: 16px;
+    margin-left: 5px;
+    flex-shrink: 0;
+}
+
+.chat-item-message {
+    /* Jax: last chat message */
+    font-family: 'Exo';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Hide the choices container by default */
@@ -312,4 +663,68 @@ header {
     } 40% {
         transform: scale(1.0);
     }
+}
+
+/* Character-specific message colors */
+.message.character-arc-a {
+    border: 3px solid #ffffff;
+    background-color: #1a0a24;
+    font-family: monospace;
+    font-size: 1.2em;
+    max-width: 100%;
+    min-width: 90%;
+}
+
+.message.character-alana {
+    background-color: #5a4a6d; /* Player's message color - keep existing */
+    font-family: "Exo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+    
+}
+
+.message.character-jax {
+    background-color: #3F3333; /* Green for Jax */
+    font-family: "Exo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.message.character-lena {
+    background-color: #293149; /* Blue for Lena */
+    font-family: "Exo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: li300ght;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.message.character-system {
+    background-color: #2a3a4d; /* Blue-gray for system messages */
+    border-left: 3px solid #4a5a6d;
+    font-style: italic;
+}
+
+/* Ensure character names are visible with appropriate contrast */
+.message.character-arc-a .author {
+    color: #ffffff; /* Light green for ARC-A */
+    font-size: 0.8 rem;
+}
+
+.message.character-jax .author {
+    font-size:  12px;
+    color: #ffffff;
+}
+
+.message.character-lena .author {
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.message.character-system .author {
+    color: #7aa8a8; /* Light blue-gray for system */
 }
