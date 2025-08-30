@@ -101,7 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1000);
         });
         
-        scrollToBottom();
+        // Scroll to show the entire transition message
+        setTimeout(() => {
+            notification.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'end',
+                inline: 'nearest'
+            });
+        }, 100);
     };
 
     const processStory = async (startId) => {
