@@ -132,13 +132,13 @@ For more details, see the [Creative Commons License](https://creativecommons.org
 
 If you encounter any issues or have questions:
 
-1. Check the [Issues](https://github.com/yourusername/luna-archive-narrative/issues) page
+1. Check the [Issues](https://github.com/bobbyberta/luna-archive-narrative/issues) page
 2. Create a new issue with detailed information
 3. Include browser version and steps to reproduce
 
 ## 🙏 Acknowledgments
 
-- Story and narrative design by [Your Name]
+- Story and narrative design by Bobbyberta
 - UI/UX inspiration from modern messaging applications
 - Fonts provided by Google Fonts
 
