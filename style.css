@@ -88,6 +88,45 @@ body > div {
     color: #FFFFFF;
 }
 
+#restart-button {
+    /* Restart button */
+    width: 223px;
+    height: 48px;
+    background: rgba(217, 217, 217, 0.01);
+    border: 1px solid rgba(217, 217, 217, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+    display: none; /* Hidden by default, shown via JS when save data exists */
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 16px;
+    transition: all 0.2s ease;
+}
+
+#restart-button:hover {
+    background: rgba(217, 217, 217, 0.2);
+    border-color: rgba(217, 217, 217, 0.5);
+}
+
+#restart-button:active {
+    background: rgba(217, 217, 217, 0.05);
+    transform: translateY(1px);
+}
+
+#restart-button::before {
+    /* Restart */
+    content: "Restart";
+    font-family: 'Exo';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+
 /* Chat List Screen Styling */
 .chat-list-header {
     height: 26px;
@@ -369,6 +408,59 @@ header {
     color: #FFFFFF;
     z-index: 1;
     position: relative;
+}
+
+/* Save/Load Controls */
+.save-load-controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    justify-content: space-between;
+}
+
+.save-control-btn {
+    flex: 1;
+    height: 36px;
+    background: rgba(217, 217, 217, 0.15);
+    border: 1px solid rgba(217, 217, 217, 0.3);
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-family: 'Exo';
+    font-weight: 300;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.save-control-btn:hover {
+    background: rgba(217, 217, 217, 0.25);
+    border-color: rgba(217, 217, 217, 0.5);
+}
+
+.save-control-btn:active {
+    background: rgba(217, 217, 217, 0.1);
+    transform: translateY(1px);
+}
+
+/* Save notification */
+.save-notification {
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2b1a3d;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: 'Exo';
+    font-size: 14px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.save-notification.show {
+    opacity: 1;
 }
 
 #chat-list-container {
@@ -729,4 +821,183 @@ header {
 
 .message.character-system .author {
     color: #7aa8a8; /* Light blue-gray for system */
+}
+
+/* Tutorial System Styles */
+.tutorial-overlay {
+    /* Positioning now handled by JavaScript for phone screen alignment */
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10002;
+}
+
+.tutorial-modal {
+    background: #2b1a3d;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    max-width: 340px;
+    width: 90%;
+    margin: 20px;
+    border: 1px solid #4a3a5d;
+}
+
+.tutorial-content {
+    padding: 24px;
+}
+
+.tutorial-content h3 {
+    font-family: 'Krona One', sans-serif;
+    font-size: 20px;
+    color: #FFFFFF;
+    margin: 0 0 16px 0;
+    text-align: center;
+}
+
+.tutorial-content p {
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #e0e0e0;
+    margin: 0 0 24px 0;
+    text-align: center;
+}
+
+.tutorial-btn {
+    width: 100%;
+    background: rgba(217, 217, 217, 0.2);
+    border: none;
+    border-radius: 12px;
+    color: #FFFFFF;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 8px;
+}
+
+.tutorial-btn:hover {
+    background: rgba(217, 217, 217, 0.3);
+}
+
+.tutorial-btn:active {
+    background: rgba(217, 217, 217, 0.1);
+    transform: translateY(1px);
+}
+
+.tutorial-skip-btn {
+    background: rgba(217, 217, 217, 0.05);
+    border: 1px solid rgba(217, 217, 217, 0.2);
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.tutorial-skip-btn:hover {
+    background: rgba(217, 217, 217, 0.15);
+    opacity: 1;
+}
+
+.tutorial-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9998;
+    pointer-events: none;
+}
+
+.tutorial-spotlight {
+    position: fixed;
+    border-radius: 12px;
+    z-index: 9999;
+    pointer-events: none;
+    animation: tutorial-pulse 2s infinite;
+}
+
+@keyframes tutorial-pulse {
+    0% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.95), 0 0 0 4px rgba(255, 255, 255, 0.3); }
+    50% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.95), 0 0 0 8px rgba(255, 255, 255, 0.2); }
+    100% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.95), 0 0 0 4px rgba(255, 255, 255, 0.3); }
+}
+
+@keyframes tutorial-pulse-border {
+    0% { 
+        border-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+    }
+    50% { 
+        border-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+    }
+    100% { 
+        border-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+    }
+}
+
+.tutorial-spotlight-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    pointer-events: none;
+}
+
+.tutorial-highlight-border {
+    position: fixed;
+    border-radius: 12px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.tutorial-message {
+    position: fixed;
+    z-index: 10000;
+    height: fit-content;
+}
+
+.tutorial-message-content {
+    background: #2b1a3d;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #4a3a5d;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.tutorial-message-content p {
+    font-family: 'Exo', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #e0e0e0;
+    margin: 0 0 12px 0;
+}
+
+.tutorial-message .tutorial-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+    margin-bottom: 0;
+}
+
+/* Ensure tutorial elements work well on mobile */
+@media (max-width: 400px) {
+    .tutorial-modal {
+        max-width: 320px;
+        margin: 10px;
+    }
+    
+    .tutorial-content {
+        padding: 20px;
+    }
+    
+    .tutorial-message-content {
+        max-width: 260px;
+    }
 }

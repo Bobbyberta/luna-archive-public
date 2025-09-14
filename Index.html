@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna Archives</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="start-screen" class="screen active">
+        <h1>Luna Archives</h1>
+        <button id="play-button"></button>
+        <button id="restart-button"></button>
+    </div>
+
+    <div id="chat-list-screen" class="screen">
+        <header class="chat-list-header">
+            <div class="chat-list-header-content">
+                <div class="chat-list-title-container">
+                    <button class="chat-list-arrow" id="home-back-button">
+                        <img src="back-home-arrow.png" alt="Back to home" class="back-arrow-image">
+                    </button>
+                    <h2 class="chat-list-title">Luna Archives</h2>
+                </div>
+                <div class="chat-list-avatar"></div>
+            </div>
+        </header>
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                <span class="progress-bar-text">Progress through story</span>
+            </div>
+        </div>
+        <ul id="chat-list-container">
+            </ul>
+    </div>
+
+    <div id="chat-screen" class="screen">
+        <header>
+            <div class="header-content">
+                <button id="back-button">
+                    <svg width="26" height="26" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.292893 7.29289C-0.0976311 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928932C7.68054 0.538408 7.04738 0.538408 6.65685 0.928932L0.292893 7.29289ZM16 8V7H1V8V9H16V8Z" fill="white" fill-opacity="0.5"/>
+                    </svg>
+                </button>
+                <div class="avatar-placeholder"></div>
+                <div class="chat-info">
+                    <h2 id="chat-title"></h2>
+                    <p id="chat-members"></p>
+                </div>
+            </div>
+        </header>
+        <main id="message-container">
+            </main>
+        <footer id="choices-container">
+            </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
